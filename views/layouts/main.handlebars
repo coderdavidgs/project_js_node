@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefas</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    </head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="/img/logo.png" alt=""><span class="logo-title">TAREFAS</span>
+        </div>
+        <div class="nav-itens">
+            <ul>
+                {{#if session.userid}}
+                <li><a href="/initial">HOME</a></li>
+                <li><a href="/createTask">CRIAR TAREFA</a></li>
+                <li><a href="/myTask">VER TAREFAS</a></li>
+                <li>BEM VINDO: {{name}}<img src="/img/emoji.png" alt="Emoji"></li>
+                <li><a href="/logout">SAIR</a></li>
+                {{else}}
+                <li><a href="/login">LOGIN</a></li>
+                <li><a href="/register">CADASTRAR</a></li>
+                {{/if}}
+            </ul>
+        </div>
+    </nav>
+    {{#if messages.message}}
+        <div class="messages">
+        {{messages.message}}
+        </div>
+    {{/if}}
+    {{{body}}}
+
+    <footer>
+        <p>TASKS &copy; David Santos</p>
+    </footer>
+</body>
+</html>

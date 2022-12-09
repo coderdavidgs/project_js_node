@@ -1,0 +1,20 @@
+<div class="userTasks">
+    <ul>
+    {{#if tasks}}
+    {{#each tasks}}
+        <hr>
+        <div class="taskView">
+        <li><img src="/img/check.png" alt="Tarefa">Tarefa:{{this.task}}</li>
+        <li><img src="/img/seta.png" alt="Prioridade">Prioridade:{{this.level}}</li>
+        <form action="/exclude" method="POST">
+            <input type="hidden" name="id" value="{{this.id}}">
+            <input type="submit" value="Finalizada">
+        </form>
+        </div>
+        <hr>
+    {{/each}}
+    </ul>
+    {{else}}
+    <p>SEM TAREFAS <a href="/createTask">APERTE AQUI PARA CRIAR</a></p>
+    {{/if}}
+</div>
